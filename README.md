@@ -1,5 +1,7 @@
 La tienda
+
 Enunciado
+
 Se desea crear una aplicación que permita manejar el inventario de una tienda, conocer cuánto dinero hay en caja y tener un control de estadísticas de ventas.  
 
 La tienda maneja cuatro productos. De cada uno de ellos se maneja la siguiente información:
