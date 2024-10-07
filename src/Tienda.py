@@ -12,16 +12,13 @@ class Tienda:
 # ----------------------------------------------------------------
 
     def __init__(self):
-    
 #----------------------------------------------------------------
 # Atributos
 #----------------------------------------------------------------
-    
         self.__producto1 = None
         self.__producto2 = None
         self.__producto3 = None
         self.__producto4 = None
-    
         self.__dineroCaja:float = 0
     
 #----------------------------------------------------------------
@@ -40,21 +37,21 @@ class Tienda:
     __returns__='Producto2'
     __descriptions__='Este metodo retorna la informacion de producto 2'
     def DarProducto2(self):
-        return self.__Producto2
+        return self.__producto2
         
     __method__='DarProucto3'
     __params__='Ninguno'
     __returns__='Producto3'
     __descriptions__='Este metodo retorna la informacion de producto 3'
     def DarProducto3(self):
-        return self.__Producto3
+        return self.__producto3
         
     __method__='DarProucto4'
     __params__='Ninguno'
     __returns__='Producto4'
     __descriptions__='Este metodo retorna la informacion de producto 4'
     def DarProducto4(self):
-        return self.__Producto4
+        return self.__producto4
                 
     __method__='DarDineroCaja'
     __params__='Ninguno'

@@ -4,7 +4,7 @@ __version__="1.0.0"
 __Email__="juan.parrasan@campusucc.edu.co"
 
 import Constantes
-
+from Tipo import Tipo
 class Producto:
 
 #----------------------------------------------------------------
@@ -12,7 +12,7 @@ class Producto:
 # ----------------------------------------------------------------
 
     #IVA_PAPELERIA = 0.16
-    #IVA_SUPERMERCADO = 0.04
+    IVA_SUPERMERCADO = 0.04
     #IVA_FARMACIA = 0.12
 
 #----------------------------------------------------------------
@@ -39,7 +39,7 @@ class Producto:
 #----------------------------------------------------------------
 
     def CalcularPrecioSupermercador(self):
-        self.precio += self.__precio + (self.precio * self.IVA_SUPERMERCADO) 
+        self.__valorUnitario += self.__valorUnitario + (self.__valorUnitario * self.IVA_SUPERMERCADO) 
 
 #----------------------------------------------------------------
 # Metodos
