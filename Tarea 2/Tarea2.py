@@ -50,7 +50,7 @@ for producto in tienda.productos:
 # Parte 1 
 #----------------------------------------------------------------
 print("\n------------------------------------------")
-print("Part 1")
+print("Parte 1")
 print("------------------------------------------\n")
 
 # Leche: cantidadBodega - cantidadMinima
@@ -94,7 +94,7 @@ valor_jabon_vendido = producto3.cantidad_unidades_vendidas * producto3.valor_uni
 print(f"Jabón vendido con IVA: {valor_jabon_vendido}")
 
 print("\n------------------------------------------")
-print("Part 1")
+print("Parte 1")
 print("------------------------------------------\n")
 
 #----------------------------------------------------------------
@@ -105,7 +105,7 @@ print("------------------------------------------\n")
 # Parte 2 
 #----------------------------------------------------------------
 print("\n------------------------------------------")
-print("Part 2")
+print("Parte 2")
 print("------------------------------------------\n")
 
 # Parte II - Evaluación de expresiones relacionales
@@ -151,7 +151,7 @@ dinero_vs_ventas_libreta = (tienda.dinero_en_caja * IVA_PAPELERIA) > (producto1.
 print(f"dineroEnCaja * IVA_libreta > libreta.unidadesVendidas * valorUnitario: {dinero_vs_ventas_libreta}")
 
 print("\n------------------------------------------")
-print("Part 2")
+print("Parte 2")
 print("------------------------------------------\n")
 
 #----------------------------------------------------------------
@@ -162,7 +162,7 @@ print("------------------------------------------\n")
 # Parte 3 
 #----------------------------------------------------------------
 print("\n------------------------------------------")
-print("Part 3")
+print("Parte 3")
 print("------------------------------------------\n")
 
 # Parte III - Evaluación de expresiones lógicas
@@ -208,7 +208,7 @@ dinero_vs_valor_jabon = (tienda.dinero_en_caja * 0.1) <= (producto3.valor_unitar
 print(f"dineroEnCaja * 0.1 <= valorUnitario_jabon * (1 + IVA_SUPERMERCADO): {dinero_vs_valor_jabon}")
 
 print("\n------------------------------------------")
-print("Part 3")
+print("Parte 3")
 print("------------------------------------------\n")
 
 #----------------------------------------------------------------
@@ -219,7 +219,7 @@ print("------------------------------------------\n")
 # Parte 4 
 #----------------------------------------------------------------
 print("\n------------------------------------------")
-print("Part 4")
+print("Parte 4")
 print("------------------------------------------\n")
 
 # Parte IV - Operadores aritméticos
@@ -261,7 +261,7 @@ print(f"Estantes de 50 posiciones necesarios para almacenar todos los productos:
 
 
 print("\n------------------------------------------")
-print("Part 4")
+print("Parte 4")
 print("------------------------------------------\n")
 #----------------------------------------------------------------
 # Parte 4
