@@ -49,11 +49,9 @@ for producto in tienda.productos:
 #----------------------------------------------------------------
 # Parte 1 
 #----------------------------------------------------------------
-print('')
-print('------------------------------------------')
-print('parte 1')
-print('------------------------------------------')
-print('')
+print("\n------------------------------------------")
+print("Part 1")
+print("------------------------------------------\n")
 
 # Leche: cantidadBodega - cantidadMinima
 resta_leche = producto2.cantidad_bodega - producto2.cantidad_minima
@@ -95,11 +93,9 @@ print(f"Tienda (dinero en caja menos el valor mínimo de leche): {dinero_restant
 valor_jabon_vendido = producto3.cantidad_unidades_vendidas * producto3.valor_unitario * (1 + IVA_SUPERMERCADO)
 print(f"Jabón vendido con IVA: {valor_jabon_vendido}")
 
-print('')
-print('------------------------------------------')
-print('parte 1')
-print('------------------------------------------')
-print('')
+print("\n------------------------------------------")
+print("Part 1")
+print("------------------------------------------\n")
 
 #----------------------------------------------------------------
 # Parte 1 
@@ -108,11 +104,9 @@ print('')
 #----------------------------------------------------------------
 # Parte 2 
 #----------------------------------------------------------------
-print('')
-print('------------------------------------------')
-print('parte 2')
-print('------------------------------------------')
-print('')
+print("\n------------------------------------------")
+print("Part 2")
+print("------------------------------------------\n")
 
 # Parte II - Evaluación de expresiones relacionales
 
@@ -156,11 +150,9 @@ print(f"Suma de bodega de todos los productos <= 1000: {suma_bodega_tienda}")
 dinero_vs_ventas_libreta = (tienda.dinero_en_caja * IVA_PAPELERIA) > (producto1.cantidad_unidades_vendidas * producto1.valor_unitario)
 print(f"dineroEnCaja * IVA_libreta > libreta.unidadesVendidas * valorUnitario: {dinero_vs_ventas_libreta}")
 
-print('')
-print('------------------------------------------')
-print('parte 2')
-print('------------------------------------------')
-print('')
+print("\n------------------------------------------")
+print("Part 2")
+print("------------------------------------------\n")
 
 #----------------------------------------------------------------
 # Parte 2 
@@ -169,11 +161,9 @@ print('')
 #----------------------------------------------------------------
 # Parte 3 
 #----------------------------------------------------------------
-print('')
-print('------------------------------------------')
-print('parte 3')
-print('------------------------------------------')
-print('')
+print("\n------------------------------------------")
+print("Part 3")
+print("------------------------------------------\n")
 
 # Parte III - Evaluación de expresiones lógicas
 
@@ -217,11 +207,9 @@ print(f"promedio bodega leche dentro de 50 y 100: {promedio_bodega_leche}")
 dinero_vs_valor_jabon = (tienda.dinero_en_caja * 0.1) <= (producto3.valor_unitario * (1 + IVA_SUPERMERCADO))
 print(f"dineroEnCaja * 0.1 <= valorUnitario_jabon * (1 + IVA_SUPERMERCADO): {dinero_vs_valor_jabon}")
 
-print('')
-print('------------------------------------------')
-print('parte 3')
-print('------------------------------------------')
-print('')
+print("\n------------------------------------------")
+print("Part 3")
+print("------------------------------------------\n")
 
 #----------------------------------------------------------------
 # Parte 3
@@ -230,11 +218,9 @@ print('')
 #----------------------------------------------------------------
 # Parte 4 
 #----------------------------------------------------------------
-print('')
-print('------------------------------------------')
-print('parte 4')
-print('------------------------------------------')
-print('')
+print("\n------------------------------------------")
+print("Part 4")
+print("------------------------------------------\n")
 
 # Parte IV - Operadores aritméticos
 
@@ -274,11 +260,9 @@ total_estantes = (producto1.cantidad_bodega + producto2.cantidad_bodega + produc
 print(f"Estantes de 50 posiciones necesarios para almacenar todos los productos: {total_estantes}")
 
 
-print('')
-print('------------------------------------------')
-print('parte 4')
-print('------------------------------------------')
-print('')
+print("\n------------------------------------------")
+print("Part 4")
+print("------------------------------------------\n")
 #----------------------------------------------------------------
 # Parte 4
 #----------------------------------------------------------------
