@@ -1,4 +1,4 @@
-from tkinter import N
+from tkinter import Tk, Label, Button
 
 #------------------------------------
 # Constantes
