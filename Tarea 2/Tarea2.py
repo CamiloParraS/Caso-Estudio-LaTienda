@@ -1,9 +1,12 @@
 from tkinter import N
 
-
+#------------------------------------
+# Constantes
 IVA_PAPELERIA = 0.16
 IVA_SUPERMERCADO = 0.04
 IVA_FARMACIA = 0.12
+# Constantes
+#------------------------------------
 
 class Producto:
     def __init__(self, nombre, tipo, valor_unitario, cantidad_bodega, cantidad_minima, cantidad_unidades_vendidas):
@@ -30,7 +33,7 @@ class Tienda:
 producto1 = Producto(nombre="libreta", tipo="PAPELERIA", valor_unitario=5500, cantidad_bodega=44, cantidad_minima=15, cantidad_unidades_vendidas=6)
 producto2 = Producto(nombre="leche", tipo="SUPERMERCADO", valor_unitario=2100, cantidad_bodega=25, cantidad_minima=10, cantidad_unidades_vendidas=25)
 producto3 = Producto(nombre="jabón", tipo="SUPERMERCADO", valor_unitario=4200, cantidad_bodega=36, cantidad_minima=8, cantidad_unidades_vendidas=14)
-producto4 = Producto(nombre="aspirina", tipo="DROGUERIA", valor_unitario=400, cantidad_bodega=13, cantidad_minima=11, cantidad_unidades_vendidas=32)
+producto4 = Producto(nombre="aspirina", tipo="FARMACIA", valor_unitario=400, cantidad_bodega=13, cantidad_minima=11, cantidad_unidades_vendidas=32)
 
 # Crear la tienda
 tienda = Tienda(dinero_en_caja=0)  # Inicialmente la caja está vacía
@@ -73,9 +76,9 @@ print(f"Libreta: {(producto1.valor_unitario * producto1.cantidad_bodega)} / ({pr
 valor_leche_iva = producto2.valor_unitario * producto2.cantidad_unidades_vendidas * IVA_SUPERMERCADO
 print(f"Leche (valorUnitario * cantidadUnidadesVendidas * IVA_SUPERMERCADO): {valor_leche_iva}")
 
-# Aspirina: valorUnitario * (1 + IVA_DROGUERIA) * cantidadUnidadesVendidas
+# Aspirina: valorUnitario * (1 + IVA_FARMACIA) * cantidadUnidadesVendidas
 valor_aspirina_iva = producto4.valor_unitario * (1 + IVA_FARMACIA) * producto4.cantidad_unidades_vendidas
-print(f"Aspirina (valorUnitario * (1 + IVA_DROGUERIA) * cantidadUnidadesVendidas): {valor_aspirina_iva}")
+print(f"Aspirina (valorUnitario * (1 + IVA_FARMACIA) * cantidadUnidadesVendidas): {valor_aspirina_iva}")
 
 # Tienda: Promedio de los valores unitarios de los productos
 promedio_valor_productos = (producto1.valor_unitario + producto2.valor_unitario + producto3.valor_unitario + producto4.valor_unitario) / 4
@@ -114,9 +117,9 @@ print("------------------------------------------\n")
 libreta_papeleria = producto1.tipo == "PAPELERIA"
 print(f"libreta.tipo == 'PAPELERIA': {libreta_papeleria}")  # True
 
-# Libreta: tipo != Tipo.DROGUERIA
-libreta_no_drogueria = producto1.tipo != "DROGUERIA"
-print(f"libreta.tipo != 'DROGUERIA': {libreta_no_drogueria}")  # True
+# Libreta: tipo != Tipo.FARMACIA
+libreta_no_farmacia = producto1.tipo != "FARMACIA"
+print(f"libreta.tipo != 'FARMACIA': {libreta_no_farmacia}")  # True
 
 # Leche: cantidadMinima >= cantidadBodega
 leche_cantidad_minima_mayor = producto2.cantidad_minima >= producto2.cantidad_bodega
@@ -138,7 +141,7 @@ print(f"jabón.cantidadBodega * valorUnitario == cantidadUnidadesVendidas * IVA_
 tienda_comparacion_ventas = (producto1.cantidad_unidades_vendidas + producto2.cantidad_unidades_vendidas) > producto3.cantidad_unidades_vendidas
 print(f"Unidades vendidas (libreta + leche) > jabón: {tienda_comparacion_ventas}")  # True
 
-# Tienda: dineroEnCaja <= producto4.cantidadUnidadesVendidas * ( ( 1 + IVA_DROGUERIA ) * producto4.valorUnitario )
+# Tienda: dineroEnCaja <= producto4.cantidadUnidadesVendidas * ( ( 1 + IVA_FARMACIA ) * producto4.valorUnitario )
 dinero_comparacion_aspirina = tienda.dinero_en_caja <= producto4.cantidad_unidades_vendidas * ((1 + IVA_FARMACIA) * producto4.valor_unitario)
 print(f"dineroEnCaja <= (aspirina.unidadesVendidas * (1 + IVA_FARMACIA) * valorUnitario): {dinero_comparacion_aspirina}")
 
@@ -167,9 +170,9 @@ print("------------------------------------------\n")
 
 # Parte III - Evaluación de expresiones lógicas
 
-# Leche: !(tipo == Tipo.PAPELERIA || tipo == Tipo.DROGUERIA)
-leche_no_papeleria_no_drogueria = not (producto2.tipo == "PAPELERIA" or producto2.tipo == "DROGUERIA")
-print(f"leche no es PAPELERIA ni DROGUERIA: {leche_no_papeleria_no_drogueria}")  # True
+# Leche: !(tipo == Tipo.PAPELERIA || tipo == Tipo.FARMACIA)
+leche_no_papeleria_no_farmacia = not (producto2.tipo == "PAPELERIA" or producto2.tipo == "FARMACIA")
+print(f"leche no es PAPELERIA ni FARMACIA: {leche_no_papeleria_no_farmacia}")  # True
 
 # Jabón: tipo == Tipo.SUPERMERCADO && valorUnitario <= 10000
 jabon_supermercado_y_valor = (producto3.tipo == "SUPERMERCADO") and (producto3.valor_unitario <= 10000)
@@ -192,8 +195,8 @@ aspirina_condiciones = (producto4.tipo == "PAPELERIA") and (producto4.valor_unit
 print(f"aspirina tipo == PAPELERIA y valorUnitario > 50 y no (cantidadMinima < cantidadBodega): {aspirina_condiciones}")
 
 # Tienda: producto1,2,3,4 diferentes tipos, verificar condición
-tienda_comparacion_tipos = (producto1.tipo == "PAPELERIA") and (producto2.tipo == "SUPERMERCADO") and (producto3.tipo != "DROGUERIA") and (producto4.tipo == "SUPERMERCADO")
-print(f"Tienda tipos (papeleria, supermercado, no drogueria, supermercado): {tienda_comparacion_tipos}")  # False
+tienda_comparacion_tipos = (producto1.tipo == "PAPELERIA") and (producto2.tipo == "SUPERMERCADO") and (producto3.tipo != "FARMACIA") and (producto4.tipo == "SUPERMERCADO")
+print(f"Tienda tipos (papeleria, supermercado, no farmacia, supermercado): {tienda_comparacion_tipos}")  # False
 
 # Tienda: (dineroEnCaja / producto1.valorUnitario) >= producto1.cantidadMinima
 dinero_vs_minimo_libreta = (tienda.dinero_en_caja / producto1.valor_unitario) >= producto1.cantidad_minima
