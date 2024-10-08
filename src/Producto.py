@@ -89,10 +89,29 @@ class Producto:
     __Description__ = "Retorna la cantidad minima en bodega"
     def DarCantidadMinima(self):
         return self.__cantidadMinima
-        
+    
     __method__ = "DarCantidadUnidadesVendidas"
     __parameter__ = "Ninguno"
     __returns__ = "CantidadUnidadesVendidas"
     __Description__ = "Retorna la cantidad de unidades vendidas"
     def DarCantidadUnidadesVendidas(self):
         return self.__cantidadUnidadesVendidas
+   
+    __method__ = "DarPublicidad"
+    __parameter__ = "Ninguno"
+    __returns__ = "Mesnaje publicitario de n producto"
+    __Description__ = "Metodo que brinda publicidad de un producto"
+    def DarPublicidad(self):
+        # Metodo facil ------------------------------------------------------------------
+        # return 'compre el producto ' + self.__nombre +'por solo $'+self.__valorUnitario
+        # Metodo facil ------------------------------------------------------------------ 
+        # Metodo Pro --------------------------------------------------------------------
+        return f'compre el producto {self.DarNombre} porsolo $ {self.DarValorUnitario}' 
+        # Metodo Pro ---------------------------------------------------------------------
+    
+    __method__ = "EsIgual"
+    __parameter__ = "Producto"
+    __returns__ = "True o False segun el resultado"
+    __Description__ = "Metodo que permite comparar el producto con otro ingresado por el usuario"
+    def EsIgual(self,  producto):
+        return self.DarNombre() is producto
