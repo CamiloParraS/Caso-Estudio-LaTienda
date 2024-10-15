@@ -1,5 +1,3 @@
-from tkinter import Tk, Label, Button
-
 #------------------------------------
 # Constantes
 IVA_PAPELERIA = 0.16
