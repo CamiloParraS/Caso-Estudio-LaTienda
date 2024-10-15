@@ -1,16 +1,21 @@
+#----------------------------------------------------------------------------
+# Nombre: Juan Camilo Parra Sanchez
+# ID:  917079
+
+#----------------------------------------------------------------------------
+
 __author__="juan camilo parra"
 __license__="GPL"
 __version__="1.0.0"
 __Email__="juan.parrasan@campusucc.edu.co"
 
+#---------------------------------------------------------------------------
+# Tarea 05
+#--------------------------------------------------------------------------- 
 from src.Producto import Producto
 from src.Tienda import Tienda
 from src.Tipo import Tipo
-
-#---------------------------------------------------------------------------
-# Tarea 05
-#---------------------------------------------------------------------------   
-    
+      
 #---------------------------------------------------------------------------
 # Clase Producto
 #---------------------------------------------------------------------------
@@ -26,7 +31,7 @@ __descriptions__ = "Método que aumenta el valor unitario del producto según la
 def subirValorUnitario(self):
     if self.__valorUnitario < 1000:
         self.__valorUnitario *= 1.01
-    elif  self.__valorUnitario >= 1000 <= 5000:
+    elif 1000 <= self.__valorUnitario <= 5000:
             self.__valorUnitario  *= 1.02
     else:
         self.__valorUnitario *= 1.03
@@ -38,7 +43,7 @@ __params__ = 'Cantidad del pedido'
 __returns__ = 'Ninguno'
 __descriptions__ = 'Método que realiza un pedido si la cantidad en bodega es menor al tope mínimo.'
 def hacerPedido(self, pCantidad:int):
-    if self.__cantidadBodega >= self.__cantidadMinima:
+    if self.__cantidadBodega < self.__cantidadMinima:
         self.__cantidadBodega += pCantidad
 
 # Modificar el precio del producto, utilizando la siguiente politica: 
