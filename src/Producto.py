@@ -5,15 +5,16 @@ __Email__="juan.parrasan@campusucc.edu.co"
 
 import Constantes
 from Tipo import Tipo
+import Tienda
 class Producto:
 
 #----------------------------------------------------------------
 # Constantes
 # ----------------------------------------------------------------
 
-    #IVA_PAPELERIA = 0.16
+    IVA_PAPELERIA = 0.16
     IVA_SUPERMERCADO = 0.04
-    #IVA_FARMACIA = 0.12
+    IVA_FARMACIA = 0.12
 
 #----------------------------------------------------------------
 # Constructor
@@ -27,11 +28,11 @@ class Producto:
         self.__nombre=nombre
         self.__tipo=tipo
         self.__valorUnitario = valorUnitario
-        self.__subsidiado = subsidiado
-        self.__calidad = calidad
         self.__cantidadBodega = cantidad
         self.__cantidadMinima = cantidadMinima
         self.__cantidadUnidadesVendidas = 0
+        self.__subsidiado = subsidiado
+        self.__calidad = calidad
 
 #----------------------------------------------------------------
 # self.subsidiado = True 
@@ -115,3 +116,134 @@ class Producto:
     __Description__ = "Metodo que permite comparar el producto con otro ingresado por el usuario"
     def EsIgual(self,  producto):
         return self.DarNombre() is producto
+    
+    __method__='Vender'
+    __params__='Cantidad de producto a vender'
+    __returns__='Ninguno'
+    __descriptions__='Metodo que permite vender'
+    def Vender(self, cProducto):
+        if cProducto > self.DarCantidadBodega():
+            self.__cantidadUnidadesVendidas += self.DarCantidadBodega()
+            self.__cantidadBodega = 0
+        else:
+            self.__cantidadUnidadesVendidas += cProducto
+            self.__cantidadBodega -= cProducto
+
+    __method__='AgregarNuevaUnidadBodega'
+    __params__='Ninguno'
+    __returns__='Nada'
+    __descriptions__='Este metodo permite Agregar un producto en bodega'
+    def AgregarNuevaUnidadBodega(self):
+        self.__cantidadBodega+=1
+        
+    __method__='Pedir'
+    __params__='Cantidad pedido'
+    __returns__='Nada'
+    __descriptions__='Este metodo permite realizar un pedido de un producto'
+    def Pedir(self, cantidad):
+        self.__cantidadBodega += cantidad
+        #self.__cantidadBodega = self.__cantidadBodega+cantidad
+        
+    def HaySuficiente(self, cProducto):
+        # Forma 1
+        #suficiente = False
+        #
+        #if(cProducto <= self.DarCantidadBodega()):
+        #   suficiente = True
+        #else 
+        #   suficiente = False
+        #return suficiente
+
+        #Forma 2 
+        #suficiente = False
+        #if(cProducto <= self.DarCantidadBodega()):
+        #   suficiente = True
+        #return suficiente
+        
+        #Forma 3
+        #if(cProducto <= self.DarCantidadBodega()):
+        #    return True
+        #else
+        #    return False
+        
+        #Forma 4 
+        return cProducto <= self.DarCantidadBodega()
+    
+    __method__='DarPrecioPapeleria'
+    __params__='conIva'
+    __returns__='Precio Final'
+    __descriptions__='Metodo que calcula el precio final de papeleria con iva o sin iva'
+    def DarPrecioPapeleria(self, coniva:bool):
+        preciofinal = self.DarValorUnitario()
+        if(coniva):
+            preciofinal = preciofinal * (1 + self.IVA_PAPELERIA)
+        return preciofinal
+    
+    __method__='AjustarPrecio'
+    __params__='Ninguno'
+    __returns__='Ninguno'
+    __descriptions__='Metodo que premite ajustar el precio si no se han vendido 100 unidades'
+    def AjustarPrecio(self):
+        if(self.DarCantidadUnidadesVendidas() < 100):
+            self.__valorUnitario = self.__valorUnitario * 0.8
+        else:
+            self.__valorUnitario = self.__valorUnitario * 1.1
+            
+    __method__ = "DarIva"
+    __parameter__ = "Ninguno"
+    __returns__ = "iva"
+    __Description__ = "metodo que permite retornar el iva segun su tipo"
+    def DarIva(self):
+        #forma 1
+        # iva = 0
+        # if self.DarTIpo() == Tipo.PAPELERIA:
+        #     iva = self.IVA_PAPELERIA
+        # elif self.DarTIpo() == Tipo.DOGUERIA:
+        #     iva = self.IVA_FARMACIA
+        # else:
+        #     iva = self.IVA_SUPERMERCADO
+        
+        #Forma 2
+        if self.DarTIpo() == Tipo.PAPELERIA:
+            return self.IVA_PAPELERIA
+        elif self.DarTIpo() == Tipo.FARMACIA:
+            return self.IVA_FARMACIA
+        else:
+            return self.IVA_SUPERMERCADO
+       
+    #---------------------------------------------------------------------------
+    # Tarea 05
+    #---------------------------------------------------------------------------   
+     
+    # Aumentar el valor unitario del producto, utilizando la siguiente politica:
+    # Si el producto cuesta menos de $1000, aumentar el 1%. 
+    # Si cuesta entre $1000 y $5000, aumenta el 2%
+    # Si cuesta mas de $5000 aumentar el 3%
+
+    def subirValorUnitario(self):
+        if self.__valorUnitario < 1000:
+            self.__valorUnitario *= 1.01
+        elif  self.__valorUnitario >= 1000 <= 5000:
+            self.__valorUnitario  *= 1.02
+        else :
+            self.__valorUnitario *= 1.03
+            
+    # Recibir un pedido, solo si en bodega se tienen menos unidades de las indicadas en el tope minimo
+    # en caso contrario el metodo no debe hacer nada
+
+    def hacerPedido(self, pCantidad:int):
+        if self.__cantidadBodega >= self.__cantidadMinima:
+            self.__cantidadBodega += pCantidad
+
+    # Modificar el precio del producto, utilizando la siguiente politica: 
+    # si elproducto es drogueria o papeleri debe disminuir un 10%
+    # si es supermercado  debe aumentar un 5%
+
+    def cambiarValorUnitario(self):
+        if self.__tipo == Tipo.FARMACIA:
+            self.__valorUnitario *=  0.9
+        elif self.__tipo == Tipo.PAPELERIA:
+            self.__valorUnitario *=  0.9
+        elif self.__tipo == Tipo.SUPERMERCADO:
+            self.__valorUnitario *= 1.05
+
