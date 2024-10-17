@@ -31,7 +31,7 @@ def subirValorUnitario(self):
     if self.__valorUnitario < 1000:
         self.__valorUnitario *= 1.01
     elif 1000 <= self.__valorUnitario <= 5000:
-            self.__valorUnitario  *= 1.02
+        self.__valorUnitario  *= 1.02
     else:
         self.__valorUnitario *= 1.03
             
