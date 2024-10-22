@@ -29,7 +29,14 @@ class Tienda:
         self.__producto4 = Producto("", Tipo.SUPERMERCADO, 0, 0, 0, False, 'A')
         self.__dineroCaja = 0.0
 
-    
+#----------------------------------------------------------------
+# Metodos Modificadores
+#----------------------------------------------------------------
+    __method__='Producto1'
+    __params__='nombre, tipo, nValorUnitario:float, cantidadBodega, nSubsidiado:bool, nCalidad'
+    __returns__='Ninguna'
+    __descriptions__='Este metodo crea el producto 1'
+    pass
 #----------------------------------------------------------------
 # Metodos
 #----------------------------------------------------------------

@@ -46,6 +46,53 @@ class Producto:
 # Metodos
 #----------------------------------------------------------------
 
+    #------------------------------------------------------------
+    #    __method__ = ""
+    #   __parameter__ = ""
+    #   __returns__= ""
+    #   __Description__ = ""
+    #-------------------------------------------------------------
+    
+    
+    #-------------------------------------------------------------
+    # Metodos Modificadores
+    #-------------------------------------------------------------
+    __method__ = "DarNombre"
+    __parameter__ = "Ninguno"
+    __returns__ = "Nombre del producto"
+    __Description__ = "metodo que retorna el nombre del producto"
+    def CambiarNombre (self, nombre):
+        self.__nombre = nombre
+
+    __method__ = "CambiarTipo"
+    __parameter__ = "tipo"
+    __returns__ = "ninguna"
+    __Description__ = "Metodo que cambia el tipo de la clase"
+    def CambiarTipo (self, tipo):
+        self.__tipo = tipo
+        
+    __method__ = "CambiarValorUnitario"
+    __parameter__ = "ValorUnitario"
+    __returns__ = "ninguno"
+    __Description__ = "Metodo que cambia el valor  unitario de la clase"
+    def CambiarValorUnitario (self, valorunitario):
+        self.__valorUnitario = valorunitario
+        
+    __method__ = "cantidadBodega"
+    __parameter__ = "cantidadBodega"
+    __returns__ = "ninguno"
+    __Description__ = "Metodo que cambia la cantidad en bodega"
+    def CambiarCantidadBodega (self, cantidadBodega):
+        self.__cantidadBodega = cantidadBodega
+        
+    __method__ = "CambiarCantidadMinima"
+    __parameter__ = "cantidadUnidadesVendidas"
+    __returns__= "Ninguna"
+    __Description__ = "metodo que cambia la cantidad unidades vendidas de la clase"
+    def  CambiarCantidadMinima (self, cantidadMinima):
+        self.__cantidadMinima = cantidadMinima
+
+        
 #----------------------------------------------------------------
 # Hacer estos metodos
 # DarNombre
@@ -247,3 +294,6 @@ class Producto:
         elif self.__tipo == Tipo.SUPERMERCADO:
             self.__valorUnitario *= 1.05
 
+    #---------------------------------------------------------------------------
+    # Tarea 05
+    #---------------------------------------------------------------------------   
